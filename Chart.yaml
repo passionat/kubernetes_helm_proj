@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: "v2"
 name: cosmocloud-deploy
 version: 1.0
 description: A Helm chart for a three-tier application including frontend, backend and redis
