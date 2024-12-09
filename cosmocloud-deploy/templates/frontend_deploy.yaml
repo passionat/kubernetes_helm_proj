@@ -19,10 +19,10 @@ spec:
             - name: BACKEND_LINKED_URL
               valueFrom:
                 configMapKeyRef:
-                  name: config_back_url
+                  name: config-back-url
                   key: BACKEND_LINKED_URL
             - name: BACKEND_LINKED_URL_VALUE
               valueFrom:
                 configMapKeyRef:
-                  name: config_back_url
+                  name: config-back-url
                   key: BACKEND_LINKED_URL_VALUE
