@@ -1,0 +1,15 @@
+# Global configuration
+replicaCount: 1
+# Configurations for each deployment
+frontend:
+  image: shreybatra/sample-frontend
+  configMap:
+    BACKEND_LINKED_URL: "BACKEND_URL"
+    BACKEND_LINKED_URL_VALUE: "http://backend-svc:8000"
+backend:
+  image: shreybatra/sample-backend
+  configMap:
+    DB_LINKED_URL: "REDIS_URL"
+    DB_LINKED_URL_VALUE: "redis://redis-svc:6379"
+redis:
+  image: redis

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config_redis_url
+data:
+  DB_LINKED_URL: {{ .Values.backend.configMap.DB_LINKED_URL }}
+  DB_LINKED_URL_VALUE: {{ .Values.backend.configMap.DB_LINKED_URL_VALUE }}

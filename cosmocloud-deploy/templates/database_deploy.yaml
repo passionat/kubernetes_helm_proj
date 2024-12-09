@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-redis
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      type: redis-db
+  template:
+    metadata:
+      labels:
+        type: redis-db
+    spec:
+      containers:
+        - name: redis-db-app
+          image: {{ .Values.redis.image }}

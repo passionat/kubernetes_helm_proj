@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config_back_url
+data:
+  BACKEND_LINKED_URL: {{ .Values.frontend.configMap.BACKEND_LINKED_URL }}
+  BACKEND_LINKED_URL_VALUE: {{ .Values.frontend.configMap.BACKEND_LINKED_URL_VALUE }}

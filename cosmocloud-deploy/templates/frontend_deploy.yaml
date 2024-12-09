@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-sample-frontend
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      type: frontend
+  template:
+    metadata:
+      labels:
+        type: frontend
+    spec:
+      containers:
+        - name: front-end-app
+          image: {{ .Values.frontend.image }}
+          env:
+            - name: BACKEND_LINKED_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: config_back_url
+                  key: BACKEND_LINKED_URL
+            - name: BACKEND_LINKED_URL_VALUE
+              valueFrom:
+                configMapKeyRef:
+                  name: config_back_url
+                  key: BACKEND_LINKED_URL_VALUE

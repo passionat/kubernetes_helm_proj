@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-sample-backend
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      type: backend
+  template:
+    metadata:
+      labels:
+        type: backend
+    spec:
+      containers:
+        - name: back-end-app
+          image: {{ .Values.backend.image }}
+          env:
+            - name: DB_LINKED_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: config_redis_url
+                  key: DB_LINKED_URL
+            - name: DB_LINKED_URL_VALUE
+              valueFrom:
+                configMapKeyRef:
+                  name: config_redis_url
+                  key: DB_LINKED_URL_VALUE
